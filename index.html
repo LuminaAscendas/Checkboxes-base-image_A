@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Check Box</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, minimal-ui">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <script type="text/javascript" src="assets/js/lib/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="assets/js/data.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    
+</head>
+<body>
+
+	<div role='main' style='display:none;'></div> 
+
+	<div role='navigation' style='display:none;'></div>	
+	 <a href="#begin_btn" style='position:absolute;top:-5000px;'>123</a>
+	
+	<!-- <div id='focus_guard_open'  role='none'></div> -->
+	<div id='whole_container'>
+		<div class="preload">
+            <div class="loader"></div>
+        </div> 
+	
+		<div id='begin_page'>
+			<div id='focus_guard_1' role='none'></div>
+			
+			<img class="beginPageImage" id="pageImage" role='img' src="assets/images/2-14_static.png" alt="Coral bleaching"> 
+			<div role='button' id='begin_btn' aria-label='Begin'>Begin</div>
+			<div id='focus_guard_2' role='none'></div>
+		</div>	
+
+
+		<div id="activityPage" style="display:none">
+	
+			<div id='focus_reader' role='none'>?</div>
+			<div id='text_container'>
+				<h1 id='direction_text' role='heading' aria-level='1' style='font-size:14px;'><span class="direction">Directions:</span><span class="dir_text"> Click on each step sequentially in the key to view the cascading responses of increased carbon dioxide.</span></h1>
+			</div>
+			
+			<div id='responsive_container'>
+				<img class="mainGraph" role='img' src="assets/images/2-14_blank.png" alt=""/> 
+				<img class="graph_1" role='img' src="assets/images/2-14_image1.png" alt=""/>
+				<img class="graph_2" role='img' src="assets/images/2-14_image2.png" alt=""/>
+				<img class="graph_3" role='img' src="assets/images/2-14_image3.png" alt=""/>
+				<img class="graph_4" role='img' src="assets/images/2-14_image4.png" alt=""/>
+				
+				
+				<div class='activityContainer'>
+				
+				</div>
+				<div role='button' id='reset_btn' class="tab_index" aria-label='Reset'>Reset</div>
+			</div>
+			
+			
+		</div>
+	</div>
+	
+	
+	<div id='focus_guard_end'  role='none'></div>
+<script>
+		$.holdReady(true);
+		var preloadComplete=false;
+		$.getScript("./assets/js/lib/preloadjs-0.6.2.min.js", function() {
+			$.holdReady(false);
+			manifest = [
+				"assets/images/common/loading.gif",
+				"assets/images/2-14_blank.png",
+				"assets/images/2-14_image1.png",
+				"assets/images/2-14_image2.png",
+				"assets/images/2-14_image3.png",
+				"assets/images/2-14_image4.png"
+			];
+			preload = new createjs.LoadQueue(true);
+			preload.addEventListener("progress", function() {
+				//console.log('Updating preloading progress...'+Math.round(preload.progress*100)+"%");
+			});
+			preload.addEventListener("complete", function(){
+				setTimeout(function(){
+					$('.preload').fadeOut();
+				},100)
+			});
+			preload.setMaxConnections(5);
+			preload.loadManifest(manifest);
+		});
+	
+</script>
+<script type="text/javascript" src="assets/js/lib/preloadjs-0.6.2.min.js"></script>
+<script type="text/javascript" src="assets/js/lib/fitToScreen.js"></script>
+</body>
+</html>
