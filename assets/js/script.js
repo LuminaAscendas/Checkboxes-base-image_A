@@ -113,10 +113,9 @@ $(document).ready(function(){
 		
 		for(i=0; i<numberOfCheck; i++){
 			
-			divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><label class="labelText" id="lab'+(i+1)+'">Step '+(i+1)+'</label><span role="checkbox" tabindex="0" aria-labelledby="lab'+(i+1)+'" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false"></span></div>' 	
+			divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><span class="labelText" id="lab'+(i+1)+'" role="none">Step '+(i+1)+'</span><span role="checkbox" aria-labelledby="lab'+(i+1)+'" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false"></span></div>'	
 			
-			
-/* 			divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><div  role="none" class="labelText" id=lab'+(i+1)+'>Step '+(i+1)+'</div><div role="none" class="checkbox" id="check_'+(i+1)+'"></div></div>' */
+
 		}
 		$('.activityContainer').html(divElem);
 	
@@ -167,13 +166,12 @@ var fnClickCheckBox = function(ev){
 	console.log(indexId);
 	if($(this).hasClass("clicked")){
 		$(this).removeClass("clicked");
+		$('#check_'+indexId).attr("aria-checked", "false");
 		$('.graph_'+indexId).css('display','none');
 	}else{
 	
 		$(this).addClass("clicked");
-		
 		$('#check_'+indexId).attr("aria-checked", "true");
-		
 		$('.graph_'+indexId).css('display','block');		
 	}	
 }
