@@ -137,7 +137,7 @@ body {
 
 #whole_container{
 	width: 666px;
-	height: 725px;
+	height: 800px;
 	/* border:1px solid violet; */
 	position: absolute;
 	margin: auto;
@@ -167,7 +167,7 @@ body {
     box-sizing: border-box;
     line-height: 27px;
 	/* right: -305px; */
-	 top: 610px;
+	 top: 560px;
 	z-index:150;
 }
 .loader{
@@ -194,7 +194,7 @@ body {
 .preload {
     position: absolute;
 	width: 766px;
-	height: 630px;
+	height: 750px;
     background: #F9F9F9;
     z-index: 999999;
 }
@@ -202,7 +202,7 @@ body {
 
 
 #direction_text{
-	width: 100%;
+	width: 97%;
 	position: relative;
 	margin-bottom: 25px;
 	
@@ -243,7 +243,7 @@ body {
 #text_container{
 	margin-top: 20px;
 	width:100%;
-	height:40px; 
+	height:50px; 
 /* 	opacity:0; */
  	/* border:1px solid red; */
 }
@@ -252,8 +252,8 @@ body {
     position: relative;
     margin-top: 14px;
     margin-left: 10px;
-	width: 666px;
-    height: 490px;
+	width: 665px;
+    height: 550px;
     padding: 20px;
 	margin:0 auto;
 	display:inherit;
@@ -265,7 +265,7 @@ body {
 		width:100%;
 	}	
 	#direction_text{
-		width:99%;
+		width:97%;
 	}	
 	#whole_container{
 		width:100%;
@@ -274,43 +274,43 @@ body {
 
 	
 .mainGraph {
-  height: 100%;
+  height: 550px;
   position: absolute;
-  width: 100%;
+  width: 666px;
 }
 
 .graph_1{
-  height: 100%;
+   height: 550px;
   position: absolute;
-  width: 100%;
+  width: 666px;
   display: none;
 }
 
 .graph_2{
-  height: 100%;
+   height: 550px;
   position: absolute;
-  width: 100%;
+  width: 666px;
   display: none;
 }
 
 .graph_3{
-  height: 100%;
+   height: 550px;
   position: absolute;
-  width: 100%;
+  width: 666px;
   display: none;  
 }
 
 .graph_4{
-  height: 100%;
+   height: 550px;
   position: absolute;
-  width: 100%;
+  width: 666px;
   display: none;
 }
 
 .graph_5{
-  height: 100%;
+   height: 550px;
   position: absolute;
-  width: 100%;
+  width: 666px;
   display: none;  
 }
 /* ul {
@@ -401,7 +401,7 @@ li:nth-child(2n+2){
     overflow: hidden;
     position: absolute;
     width: 205px;
-	top: 530px;
+	top: 500px;
     left: 450px;
 }
 
