@@ -136,7 +136,8 @@ $(document).ready(function(){
 		console.log(document.activeElement.id)
 		if(e.keyCode == 32 || e.keyCode == 13){
 			e.preventDefault();
-			$('#'+document.activeElement.id).trigger('click');
+				$('#'+e.target.id).trigger('click');
+				$('#'+e.target.id).focus();
 		}
 	} 
 	
@@ -144,7 +145,7 @@ $(document).ready(function(){
 		goBeginPage();
 	});
 	
-	$('.checkbox1').on("click keyup",fnClickCheckBox);
+	$('.checkbox1').on("click",fnClickCheckBox);
 })
 
 /*Activity start here*/
@@ -163,23 +164,27 @@ function goBeginPage(){
 }
 
 var fnClickCheckBox = function(ev){
-	if(ev.type=="keyup" && ev.keyCode !=13){
+/*   	if(ev.type=="keyup" && ev.keyCode!=13){
         console.log(ev.keyCode)
         return  true;
-    }
-	id = $(this).attr('id');
-	indexId = id.substr(id.indexOf("_") + 1);
-	console.log(indexId);
-	if($(this).hasClass("clicked")){
-		$(this).removeClass("clicked");
-		$('#check_'+indexId).attr("aria-checked", "false");
-		$('.graph_'+indexId).css('display','none');
-	}else{
+    } */ 
 	
-		$(this).addClass("clicked");
-		$('#check_'+indexId).attr("aria-checked", "true");
-		$('.graph_'+indexId).css('display','block');		
-	}	
+
+	
+		id = $(this).attr('id');
+		indexId = id.substr(id.indexOf("_") + 1);
+		console.log(indexId);
+		if($(this).hasClass("clicked")){
+			$(this).removeClass("clicked");
+			$('#check_'+indexId).attr("aria-checked", "false");
+			$('.graph_'+indexId).css('display','none');
+		}else{
+		
+			$(this).addClass("clicked");
+			$('#check_'+indexId).attr("aria-checked", "true");
+			$('.graph_'+indexId).css('display','block');		
+		}
+
 }
 /*On rezize function*/
 
