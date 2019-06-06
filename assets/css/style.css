@@ -65,7 +65,8 @@ body {
 }
 
 .dir_text{
-	font-family: "SourceSansPro-Bold";
+	font-family: 'SourceSansPro-Regular';
+	font-weight:normal;
 	font-size: 14px;
 }
 
@@ -202,7 +203,7 @@ body {
 
 
 #direction_text{
-	width: 97%;
+	width: 92%;
 	position: relative;
 	margin-bottom: 25px;
 	
@@ -265,7 +266,7 @@ body {
 		width:100%;
 	}	
 	#direction_text{
-		width:97%;
+		width:92%;
 	}	
 	#whole_container{
 		width:100%;
