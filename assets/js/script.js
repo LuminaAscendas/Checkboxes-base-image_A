@@ -7,14 +7,20 @@ $(document).ready(function(){
 
 	$("#pageImage").mouseenter(function(){
 		$("#pageImage").attr("title","Coral bleaching");
-		$(".mainGraph").attr("title","Coral bleaching");
 		
 	});
 	$("#pageImage").mouseleave(function() {
   		$("#pageImage").removeAttr('title');
+	});
+	$(".mainGraph").mouseenter(function(){
+		$(".mainGraph").attr("title","Coral bleaching");
+		
+	});
+	$(".mainGraph").mouseleave(function() {
   		$(".mainGraph").removeAttr('title');
 	});
-
+	
+	
 		/*Begin page */
 	
 	$('#begin_btn').off('click').on('click',function(){
