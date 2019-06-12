@@ -152,6 +152,23 @@ $(document).ready(function(){
 	});
 	
 	$('.checkbox1').on("click",fnClickCheckBox);
+	
+	
+	
+	
+	$(".checkbox1").mouseenter(function(){
+  		$(".checkbox1").removeAttr('title');
+	});
+	
+	
+	$(".checkbox1").mouseleave(function() {
+		
+		for(i=0; i<numberOfCheck; i++){
+			$(".checkbox1").attr("title", checkBoxText[i]);
+		}
+	});
+	
+	
 })
 
 /*Activity start here*/
@@ -184,14 +201,20 @@ var fnClickCheckBox = function(ev){
 			$(this).removeClass("clicked");
 			$('#check_'+indexId).attr("aria-checked", "false");
 			$('.graph_'+indexId).css('display','none');
+			$('#check_'+indexId).removeAttr('title');
 		}else{
 		
 			$(this).addClass("clicked");
 			$('#check_'+indexId).attr("aria-checked", "true");
 			$('.graph_'+indexId).css('display','block');		
+			$('#check_'+indexId).attr('title', checkBoxText[indexId-1]);		
 		}
 
 }
+
+
+
+
 /*On rezize function*/
 
 window.onresize = function() {
