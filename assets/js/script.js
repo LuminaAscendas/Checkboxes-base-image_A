@@ -123,11 +123,15 @@ $(document).ready(function(){
 		var divElem='<div class="header" id="head_ing" role="group">Cascading responses</div>';
 		var numberOfCheck=4;
 		
-		for(i=0; i<numberOfCheck; i++){
-			
-			divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><span class="labelText" id="lab'+(i+1)+'" role="none">Step '+(i+1)+'</span><span role="checkbox" aria-labelledby="lab'+(i+1)+'" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false"></span></div>'	
-			
-
+		//
+		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+			for(i=0; i<numberOfCheck; i++){
+				divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><span class="labelText" id="lab'+(i+1)+'" role="none">Step '+(i+1)+'</span><span role="checkbox" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false" aria-label="'+checkBoxText[i]+'"></span></div>'	
+			}	
+		}else{
+			for(i=0; i<numberOfCheck; i++){
+				divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><span class="labelText" id="lab'+(i+1)+'" role="none">Step '+(i+1)+'</span><span role="checkbox" aria-labelledby="lab'+(i+1)+'" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false" aria-label="'+checkBoxText[i]+'" title="'+checkBoxText[i]+'"></span></div>'	
+			}
 		}
 		$('.activityContainer').html(divElem);
 	
@@ -156,13 +160,10 @@ $(document).ready(function(){
 	
 	
 	
-	$(".checkbox1").mouseenter(function(){
+  	$(".checkbox1").mouseenter(function(){
   		$(".checkbox1").removeAttr('title');
 	});
-	
-	
 	$(".checkbox1").mouseleave(function() {
-		
 		for(i=0; i<numberOfCheck; i++){
 			$(".checkbox1").attr("title", checkBoxText[i]);
 		}
@@ -187,27 +188,30 @@ function goBeginPage(){
 }
 
 var fnClickCheckBox = function(ev){
-/*   	if(ev.type=="keyup" && ev.keyCode!=13){
-        console.log(ev.keyCode)
-        return  true;
-    } */ 
-	
-
 	
 		id = $(this).attr('id');
 		indexId = id.substr(id.indexOf("_") + 1);
 		console.log(indexId);
+		//$.browser.mozilla = /firefox/.test(navigator.userAgent.toLowerCase()); 
+		
 		if($(this).hasClass("clicked")){
 			$(this).removeClass("clicked");
 			$('#check_'+indexId).attr("aria-checked", "false");
 			$('.graph_'+indexId).css('display','none');
-			$('#check_'+indexId).removeAttr('title');
+/* 			if ($.browser.mozilla) {
+				alert('')
+				$('#check_'+indexId).removeAttr('title');
+			} */
 		}else{
-		
 			$(this).addClass("clicked");
 			$('#check_'+indexId).attr("aria-checked", "true");
-			$('.graph_'+indexId).css('display','block');		
-			$('#check_'+indexId).attr('title', checkBoxText[indexId-1]);		
+			$('.graph_'+indexId).css('display','block');
+			
+			
+/*  			if ($.browser.mozilla) {
+				alert('');
+				$('#check_'+indexId).attr('title', checkBoxText[indexId-1]);
+			}  */
 		}
 
 }
