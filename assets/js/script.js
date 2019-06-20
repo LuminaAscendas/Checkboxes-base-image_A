@@ -120,7 +120,7 @@ $(document).ready(function(){
 	
 	/*Creating the check box codding*/	
 		var colourArr=['red', 'green', 'blue', 'orange']
-		var divElem='<div class="header" id="head_ing" role="group">Cascading responses</div>';
+		var divElem='<div class="header" id="head_ing" role="group">Cascading Responses</div>';
 		var numberOfCheck=4;
 		
 		//

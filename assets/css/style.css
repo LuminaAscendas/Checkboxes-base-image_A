@@ -91,7 +91,7 @@ body {
 #responsive_container{
 	width:666px;
 	position:relative;
-	/* top:35px; */
+/* 	top:20px;  */
 	height:600px;
 /* 	opacity:0; */
 	/* border:1px solid green; */
@@ -244,7 +244,7 @@ body {
 #text_container{
 	margin-top: 20px;
 	width:100%;
-	height:50px; 
+	height:auto; 
 /* 	opacity:0; */
  	/* border:1px solid red; */
 }
