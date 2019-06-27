@@ -126,11 +126,11 @@ $(document).ready(function(){
 		//
 		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 			for(i=0; i<numberOfCheck; i++){
-				divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><span class="labelText" id="lab'+(i+1)+'" role="none">Step '+(i+1)+'</span><span role="checkbox" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false" aria-label="'+checkBoxText[i]+'"></span></div>'	
+				divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><span class="labelText" id="lab'+(i+1)+'" role="none">Step '+(i+1)+'</span><span role="checkbox" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false" ></span></div>'	
 			}	
 		}else{
 			for(i=0; i<numberOfCheck; i++){
-				divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><span class="labelText" id="lab'+(i+1)+'" role="none">Step '+(i+1)+'</span><span role="checkbox" aria-labelledby="lab'+(i+1)+'" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false" aria-label="'+checkBoxText[i]+'" title="'+checkBoxText[i]+'"></span></div>'	
+				divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><span class="labelText" id="lab'+(i+1)+'" role="none">Step '+(i+1)+'</span><span role="checkbox" aria-labelledby="lab'+(i+1)+'" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false"></span></div>'	
 			}
 		}
 		$('.activityContainer').html(divElem);
@@ -198,6 +198,12 @@ var fnClickCheckBox = function(ev){
 			$(this).removeClass("clicked");
 			$('#check_'+indexId).attr("aria-checked", "false");
 			$('.graph_'+indexId).css('display','none');
+			$('#check_'+indexId).removeAttr('title')
+			$('#check_'+indexId).removeAttr('aria-label');
+			$('#check_'+indexId).blur();
+			setTimeout(function(){
+				$('#check_'+indexId).focus();
+			},100)
 /* 			if ($.browser.mozilla) {
 				alert('')
 				$('#check_'+indexId).removeAttr('title');
@@ -205,7 +211,13 @@ var fnClickCheckBox = function(ev){
 		}else{
 			$(this).addClass("clicked");
 			$('#check_'+indexId).attr("aria-checked", "true");
+			$('#check_'+indexId).attr('title',checkBoxText[indexId-1])
+			$('#check_'+indexId).attr('aria-label',checkBoxText[indexId-1])
 			$('.graph_'+indexId).css('display','block');
+			$('#check_'+indexId).blur();
+			setTimeout(function(){
+				$('#check_'+indexId).focus();
+			},100)
 			
 			
 /*  			if ($.browser.mozilla) {
