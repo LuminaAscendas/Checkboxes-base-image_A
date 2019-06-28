@@ -130,7 +130,7 @@ $(document).ready(function(){
 			}	
 		}else{
 			for(i=0; i<numberOfCheck; i++){
-				divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><span class="labelText" id="lab'+(i+1)+'" role="none">Step '+(i+1)+'</span><span role="checkbox" aria-labelledby="lab'+(i+1)+'" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false"></span></div>'	
+				divElem+='<div class="item" role="none"><div  role="none" class="colorbox '+colourArr[i]+'"></div><span class="labelText" id="lab'+(i+1)+'" role="none">Step '+(i+1)+'</span><span role="checkbox" id="check_'+(i+1)+'" class="checkbox1" aria-checked="false"></span></div>'	
 			}
 		}
 		$('.activityContainer').html(divElem);
